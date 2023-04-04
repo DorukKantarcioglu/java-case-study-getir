@@ -47,4 +47,4 @@ password: getir
 ```
 
 ### Postman requests
-Postman requests are available in the folder "postman" as a collection.
+Postman requests are available in the file  `Java Case Study - Getir.postman_collection.json`. Authorization header needs to be replaced with the newly obtained token.
