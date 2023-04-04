@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "c49aca1a-3bac-4aa0-90b5-9b8d99d61eba",
+		"name": "Java Case Study - Getir",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"getir\",\r\n    \"password\": \"getir\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/authentication/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book (Empty stock field)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQ0NDk5OSwiZXhwIjoxNjgwNTMxMzk5fQ.icefz6LZ-KkkjLacFHY8UGeKDQEzGl9xQJHX6fmmyM1C3x94M8kzPv7aP1ECo05sjrUeLoNYlyCoNxnisevf5Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"978-3060311354\",\r\n    \"title\": \"Fahrenheit 421\",\r\n    \"author\": \"Ray Bradbury\",\r\n    \"price\": 13.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/books",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book (With stock field)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDI5NTg2NywiZXhwIjoxNjgwMzgyMjY3fQ.jLFK9ZZQCOX9CvkK8H3ydGX8QOKxoQFg8sA1o7DDfe2c6NvJEELuPHMnVPmqOD5pHnIPkiUOVpG8rP6A_D9kyQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"978-3060311352\",\r\n    \"title\": \"Animal Farm\",\r\n    \"author\": \"George Orwell\",\r\n    \"price\": 15,\r\n    \"stock\": 15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/books",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQ0NTA3NSwiZXhwIjoxNjgwNTMxNDc1fQ.WESL7sv_YJnpAgZr8tBgb0WUJwHvgX4YImnwyq90lLD4y72SGlZvfFgptF0wWjHLZgc-i6rOhr4QR3SEJ1FZPw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"stock\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/books",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Place Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDI5NTg2NywiZXhwIjoxNjgwMzgyMjY3fQ.jLFK9ZZQCOX9CvkK8H3ydGX8QOKxoQFg8sA1o7DDfe2c6NvJEELuPHMnVPmqOD5pHnIPkiUOVpG8rP6A_D9kyQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": 1,\r\n    \"bookOrders\": [\r\n        {\r\n            \"bookId\": 1,\r\n            \"bookCount\": 5\r\n        },\r\n        {\r\n            \"bookId\": 2,\r\n            \"bookCount\": 10\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDI5NTg2NywiZXhwIjoxNjgwMzgyMjY3fQ.jLFK9ZZQCOX9CvkK8H3ydGX8QOKxoQFg8sA1o7DDfe2c6NvJEELuPHMnVPmqOD5pHnIPkiUOVpG8rP6A_D9kyQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Orders Between Dates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDU1OTQxOCwiZXhwIjoxNjgwNjQ1ODE4fQ.EORVN971fD1rZRmY4M_xDri9UjvPtL3qZLHXUjsidSbaSMS2bB74crRSToiSys4ysnM5DiWy5DZOeA7M9_-jmQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/orders?startDate=2023-01-01&endDate=2023-04-05",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2023-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-04-05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Customer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQyNTExNSwiZXhwIjoxNjgwNTExNTE1fQ.xil76x5sOyDLTrgoxLfIZ2caPiT7CfoWxJGlzLT_xNy7fosN2TQYFMloB7NRYTfVhVFKn_HqID9tq72pDQuoSQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"dorukkantarcioglu@gmail.com\",\r\n    \"name\": \"Doruk Kantarcioglu\",\r\n    \"address\": \"Yaşamkent\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Orders (With page and size)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQzMjAwMywiZXhwIjoxNjgwNTE4NDAzfQ.zXkHHn5BZCoQXNYe1m43f7qr6TbrbIe-30ca5kleP-9TQ3fy_dkwRdLDAGMLUWT3A3H8GGDjsnpdrdZjcAl1Qw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/customers/1/orders?page=0&size=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Orders (With size)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQzMjAwMywiZXhwIjoxNjgwNTE4NDAzfQ.zXkHHn5BZCoQXNYe1m43f7qr6TbrbIe-30ca5kleP-9TQ3fy_dkwRdLDAGMLUWT3A3H8GGDjsnpdrdZjcAl1Qw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/customers/1/orders?size=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Orders (With page)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQzMjAwMywiZXhwIjoxNjgwNTE4NDAzfQ.zXkHHn5BZCoQXNYe1m43f7qr6TbrbIe-30ca5kleP-9TQ3fy_dkwRdLDAGMLUWT3A3H8GGDjsnpdrdZjcAl1Qw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/customers/1/orders?page=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Orders (Without page or size)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQzMjAwMywiZXhwIjoxNjgwNTE4NDAzfQ.zXkHHn5BZCoQXNYe1m43f7qr6TbrbIe-30ca5kleP-9TQ3fy_dkwRdLDAGMLUWT3A3H8GGDjsnpdrdZjcAl1Qw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/customers/1/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Monthly Statistics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImlhdCI6MTY4MDQyNTExNSwiZXhwIjoxNjgwNTExNTE1fQ.xil76x5sOyDLTrgoxLfIZ2caPiT7CfoWxJGlzLT_xNy7fosN2TQYFMloB7NRYTfVhVFKn_HqID9tq72pDQuoSQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/statistics/customers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"statistics",
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
